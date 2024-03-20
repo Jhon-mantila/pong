@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://nqqfje5w1mdv"]
+
+[sub_resource type="GDScript" id="GDScript_b10nd"]
+script/source = "extends CharacterBody2D
+
+const SPEED = 400.0
+
+func _physics_process(delta):
+	var direction = Vector2.ZERO
+
+	# Handle up movement.
+	if Input.is_action_pressed(\"ui_up\"):
+		direction.y -= direction * SPEED
+
+	# Handle down movement.
+	if Input.is_action_pressed(\"ui_down\"):
+		direction.y += direction * SPEED
+
+	move_and_slide()
+	
+		 
+	
+		 
+	
+		
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06od1"]
+size = Vector2(20, 160)
+
+[node name="Player" type="CharacterBody2D"]
+script = SubResource("GDScript_b10nd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 80)
+shape = SubResource("RectangleShape2D_06od1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 20.0
+offset_bottom = 160.0

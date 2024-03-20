@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://4y1urhvo73fu"]
+
+[ext_resource type="Texture2D" uid="uid://c8ggb4v4uqq03" path="res://ball1.png" id="1_1llyg"]
+[ext_resource type="Script" path="res://ball.gd" id="1_lafiv"]
+[ext_resource type="AudioStream" uid="uid://ckexkik2dy1j2" path="res://audio_toke.wav" id="3_wr8x5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fdin7"]
+radius = 32.0
+
+[node name="Ball" type="CharacterBody2D"]
+script = ExtResource("1_lafiv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1llyg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fdin7")
+
+[node name="AudioCollision" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wr8x5")
